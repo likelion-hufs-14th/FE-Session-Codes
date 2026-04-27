@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import LikeButton from '../LikeButton/LikeButton';
 import './List.css';
@@ -28,6 +29,7 @@ export default function List({ data, deletePost }) {
           {data.author.name} ({data.author.role})
         </div>
       </div>
+
       <h3 onClick={() => setIsOpen(!isOpen)}>{data.title}</h3>
 
       {isOpen && (
@@ -42,6 +44,7 @@ export default function List({ data, deletePost }) {
 
       <LikeButton />
       <button onClick={() => deletePost(data.id)}>삭제</button>
+
     </div>
   );
 }

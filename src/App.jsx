@@ -27,13 +27,16 @@ function App() {
         <span className='navbar-title'>{title} 블로그</span>
       </div>
 
+
       {/* 글 목록 */}
       {posts.map(function (data) {
+
         return (
           <List
             data={data}
             key={data.id}
             deletePost={deletePost}
+
           />
         );
       })}

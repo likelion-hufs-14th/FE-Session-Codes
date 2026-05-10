@@ -1,0 +1,42 @@
+.detail-container {
+    padding: 20px;
+}
+
+.detail-back-button {
+    background: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-bottom: 16px;
+    color: #4b5563;
+    cursor: pointer;
+}
+
+.detail-back-button:hover {
+    background-color: #f3f4f6;
+}
+
+.detail-title {
+    margin: 0 0 8px 0;
+}
+
+.detail-meta {
+    margin: 0 0 16px 0;
+    color: #6b7280;
+}
+
+.detail-divider {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 16px 0;
+}
+
+.detail-description {
+    line-height: 1.6;
+    color: #1f2937;
+}
+
+.detail-loading {
+    padding: 20px;
+    color: #6b7280;
+}

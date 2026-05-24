@@ -1,48 +1,47 @@
 // App.jsx (DetailPage 라우트 추가)
-import { Routes, Route } from "react-router";
-import NavBar from "./components/NavBar/NavBar";
-import HomePage from "./pages/HomePage";
-import DetailPage from "./pages/DetailPage";
-import PostPage from "./pages/PostPage";
-import data from "./dummy/data";
-import { useState } from "react";
-import axios from "axios";
-import { useEffect } from "react";
-import EditPage from "./pages/EditPage";
+import { Routes, Route } from 'react-router';
+import NavBar from './components/NavBar/NavBar';
+import HomePage from './pages/HomePage';
+import DetailPage from './pages/DetailPage';
+import PostPage from './pages/PostPage';
+
+import { useState } from 'react';
+import { useEffect } from 'react';
+import EditPage from './pages/EditPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import axiosInstance from './apis/axiosInstance';
 
 function App() {
-  const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
 
-  async function getPost() {
-    try {
-      const response = await axios.get(
-        "https://fe-server-production.up.railway.app/posts",
-      );
-      console.log(response.data);
-      setPosts(response.data);
-    } catch (error) {
-      console.log(error);
+    async function getPost() {
+        try {
+            const response = await axiosInstance.get('/posts');
+            console.log(response.data);
+            setPosts(response.data);
+        } catch (error) {
+            console.log(error);
+        }
     }
-  }
 
-  useEffect(() => {
-    getPost();
-  }, []);
+    useEffect(() => {
+        getPost();
+    }, []);
 
-  return (
-    <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage posts={posts} />} />
-        <Route
-          path="/detail/:id"
-          element={<DetailPage posts={posts} getPost={getPost} />}
-        />
-        <Route path="/write" element={<PostPage getPost={getPost} />} />
-        <Route path="/edit/:id" element={<EditPage getPost={getPost} />} />
-      </Routes>
-    </>
-  );
+    return (
+        <>
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<HomePage posts={posts} />} />
+                <Route path="/detail/:id" element={<DetailPage posts={posts} getPost={getPost} />} />
+                <Route path="/write" element={<PostPage getPost={getPost} />} />
+                <Route path="/edit/:id" element={<EditPage getPost={getPost} />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+            </Routes>
+        </>
+    );
 }
 
 export default App;

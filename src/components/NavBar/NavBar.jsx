@@ -1,14 +1,14 @@
 // src/components/NavBar/NavBar.jsx
-import { Link } from "react-router";
-import "./NavBar.css";
+import { Link } from 'react-router';
+import './NavBar.css';
 
 export default function NavBar() {
-  return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-title">
-        LikeLion HUFS 블로그
-      </Link>
-      <Link to="/write"> 글 작성</Link>
-    </nav>
-  );
+    return (
+        <nav className="navbar">
+            <Link to="/" className="navbar-title">
+                LikeLion HUFS 블로그
+            </Link>
+            <Link to="/write"> 글 작성</Link>
+        </nav>
+    );
 }
